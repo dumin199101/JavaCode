@@ -7,14 +7,19 @@ import java.util.Set;
  *  Set:
  *    特点：元素不重复，无索引，无序
  *
+ *
  *    HashSet:
- *       底层：Hash表（数组+链表+红黑树）
+ *       底层：Hash表（数组+链表+红黑树）,依赖于HashMap
  *       特点：查询速度快
  *       不重复：底层调用hashcode()跟equals()方法
  *
  *    LinkedHashSet:
- *       底层：（数组+链表+红黑树）+链表（记录元素存储顺序）
+ *       底层：Hash表（数组+链表+红黑树）+链表（记录元素存储顺序）
  *
+ *    TreeSet：
+ *       底层：红黑树
+ *       自然排序：comparable接口的compareTo方法
+ *       比较器排序：comparator接口的compare方法
  *
  *    Object类hashcode():返回一个系统随机的十进制整数值
  *
