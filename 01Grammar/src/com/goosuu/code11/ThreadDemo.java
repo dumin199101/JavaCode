@@ -62,6 +62,12 @@ package com.goosuu.code11;
  *         构成：生产者类、消费者类、共享数据类、测试类
  *         注意：1.wait与notify必须使用同一个锁对象调用2.必须在同步代码块或同步函数中使用
  *
+ *      线程池：
+ *         java.util.concurrent.Executors类
+ *         java.util.concurrent.ExecutorService类
+ *         static ExecutorService newFiexedThreadPool(int threads)
+ *         submit(runnable接口实现类对象)：开始任务
+ *         shutdown():结束任务，一般不用调用
  *
  */
 public class ThreadDemo {
