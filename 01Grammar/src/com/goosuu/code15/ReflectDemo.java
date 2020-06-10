@@ -15,6 +15,11 @@ import com.goosuu.code15.reflect.Person;
  *      .class通过类加载器（ClassLoader）进内存，进入Class类对象阶段
  *          class类对象获取类加载器：ClassLoader getClassLoader():
  *          classLoader类加载器获取输入流：InputStream getResourceAsStream(String name)
+ *          classLoader获取src路径下资源：
+ *                URL getResource(String name)
+ *                java.net.URL
+ *                   String getPath():获取路径
+ *
  *
  *
  *      获取Class对象方式：

@@ -2,23 +2,79 @@ package com.goosuu.code16;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * JDBC对象：
+ *  DriverManager:
+ *     registerDriver(Driver driver)：注册驱动
+ *     getConnection()：获取数据库连接
+ *  Connection:
+ *     createStatement()
+ *     preparedStatement(String sql):预编译SQL
+ *     事务：
+ *       setAutoCommit(boolean b):默认false
+ *       commit()
+ *       rollback()
+ *  Statement:
+ *     executeQuery()
+ *     executeUpdate()
+ *  PreparedStatement:
+ *     sql语句使用？作为占位符：select * from sp_user where id = ?
+ *     赋值：
+ *       setString​(int parameterIndex, String x)
+ *
+ *
+ *  ResultSet:
+ *    boolean next():游标向下移动一行
+ *    getXXX():
+ *       int getInt(int columnIndex):columnIndex从1开始
+ *       String getString(String columnLabel)
+ *       Double getDouble(int ColumnIndex)
+ *
+ *
+ *
+ *
+ *
+ */
 public class JDBCDemo {
-    public static void main(String[] args) throws Exception{
-        //1.加载数据库驱动
-        Class.forName("com.mysql.jdbc.Driver");
-        //2.创建数据库连接
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/itcast", "root", "123456");
-        //3.执行查询
-        Statement statement = conn.createStatement();
-        //4.SQL语句
-        String sql = "UPDATE `sp_articles` SET `title` = 'hello' WHERE `article_id` = 1";
-        //5.执行SQL
-        int i = statement.executeUpdate(sql);
-        //6.释放数据库连接
-        statement.close();
-        conn.close();
-        System.out.println(i);
+    public static void main(String[] args){
+        Connection conn = null;
+        Statement statement =null;
+        try{
+            //1.加载数据库驱动,可省略
+            Class.forName("com.mysql.jdbc.Driver");
+            //2.创建数据库连接
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/itcast", "root", "123456");
+            //3.执行查询
+            statement = conn.createStatement();
+            //4.SQL语句
+            String sql = "UPDATE `sp_articles` SET `title` = 'hello' WHERE `article_id` = 1";
+            //5.执行SQL
+            int i = statement.executeUpdate(sql);
+            System.out.println(i);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            //6.释放数据库连接
+            if(statement!=null){
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(conn!=null){
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+
+
     }
 }
