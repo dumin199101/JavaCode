@@ -14,9 +14,9 @@ import java.sql.Statement;
  *     createStatement()
  *     preparedStatement(String sql):预编译SQL
  *     事务：
- *       setAutoCommit(boolean b):默认false
- *       commit()
- *       rollback()
+ *       开启事务：setAutoCommit(boolean b)
+ *       提交事务：commit()
+ *       回滚事务：rollback()
  *  Statement:
  *     executeQuery()
  *     executeUpdate()
