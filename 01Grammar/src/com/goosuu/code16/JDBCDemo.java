@@ -33,6 +33,26 @@ import java.sql.Statement;
  *       String getString(String columnLabel)
  *       Double getDouble(int ColumnIndex)
  *
+ *  数据库连接池：
+ *     1.c3p0（了解）:
+ *        构造方法：ComboPooledDataSource()
+ *        成员方法：
+ *            getConnection()
+ *     2.druid:
+ *        成员方法：
+ *             DruidDataSourceFactory.createDataSource(Properties properties)
+ *             getConnection()
+ *   Spring JDBC-Template:
+ *      构造方法：
+ *         JdbcTemplate(DataSource ds)
+ *      成员方法：
+ *          update()
+ *          queryForMap()
+ *          queryForList()
+ *          query()
+ *          queryForObject()
+ *
+ *
  *
  *
  *
