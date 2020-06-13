@@ -1,6 +1,7 @@
 package com.goosuu.code16;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
@@ -32,6 +33,15 @@ public class JDBCTemplateDemo {
         String sql2 = "select count(article_id) from sp_articles";
         Integer count = jdbcTemplate.queryForObject(sql2, int.class);
         System.out.println(count);
+
+        //查询JavaBean
+        String sql3 = "select * from sp_articles";
+        List<Article> lists = jdbcTemplate.query(sql3, new BeanPropertyRowMapper<>(Article.class));
+        for (Article list : lists) {
+            System.out.println(list);
+        }
+
+
 
 
     }

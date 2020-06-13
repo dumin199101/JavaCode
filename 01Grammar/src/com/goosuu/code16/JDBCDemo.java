@@ -47,10 +47,10 @@ import java.sql.Statement;
  *         JdbcTemplate(DataSource ds)
  *      成员方法：
  *          update()
- *          queryForMap()
- *          queryForList()
- *          query()
- *          queryForObject()
+ *          queryForMap()：单条记录，封装为Map集合
+ *          queryForList()：多条记录，封装为List集合
+ *          query(new BeanPropertyRowMapper(Article.class)):封装为JavaBean对象
+ *          queryForObject()封装为对象
  *
  *
  *
