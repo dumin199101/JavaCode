@@ -88,6 +88,40 @@ package com.goosuu.code03;
  *         getProperty(Object o,String name)
  *         populate(Object o,Map m):将数据封装到JavaBean对象中
  *
+ *      Response对象：
+ *         设置响应行：
+ *            setStatus()
+ *         设置响应头：
+ *           setHeader()
+ *         设置响应体：
+ *          PrintWriter getWriter()
+ *          ServletOutputStream getOutputStream()
+ *         重定向：
+ *          sendRedirect(String location)
+ *         设置输出流的编码并告知浏览器响应体编码
+ *          setContentType():输出流默认使用ISO-8859-1
+ *
+ *     ServletContext对象：
+ *       定义：代表整个Web应用,负责跟Web服务器通讯
+ *       获取：
+ *          Request对象：getServletContext()
+ *          Servlet对象：getServletContext()
+ *       作用：
+ *         1.获取Mime类型
+ *            getMimeType()
+ *         2.域对象共享数据
+ *           在整个Web应用中,数据被所有用户共享
+ *         3.获取服务器文件存储真实路径
+ *           Tomcat中,通过CATALINA_BASE可找到对应项目存储目录
+ *           getRealPath()
+ *
+ *     文件下载：
+ *       设置响应头
+ *         1.setHeader("content-type","image/jpeg");
+ *         2.setHeader("content-disposition","attachment;filename=1.jpg")
+ *
+ *
+ *
  *
  *
  *
