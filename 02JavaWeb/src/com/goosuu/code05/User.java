@@ -1,10 +1,13 @@
 package com.goosuu.code05;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class User {
     private String name;
     private int age;
+    @JsonFormat(pattern = "yyyy-mm-dd")
     private Date date;
 
     public User(String name, int age, Date date) {
