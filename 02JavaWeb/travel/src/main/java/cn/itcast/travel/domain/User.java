@@ -1,6 +1,7 @@
 package cn.itcast.travel.domain;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 /**
  * 用户实体类

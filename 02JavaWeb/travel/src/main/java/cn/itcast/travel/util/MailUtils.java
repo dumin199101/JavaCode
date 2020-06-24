@@ -23,7 +23,7 @@ public final class MailUtils {
         try {
             final Properties props = new Properties();
             props.put("mail.smtp.auth", "true");
-            props.put("mail.smtp.host", "smtp.qq.com");
+            props.put("mail.smtp.host", "smtp.163.com");
 
             // 发件人的账号
             props.put("mail.user", USER);
