@@ -31,3 +31,4 @@ hs_err_pid*
 /02JavaWeb/travel/target/
 /02JavaWeb/travel/src/main/webapp/
 /02JavaWeb/travel/src/test/
+/02JavaWeb/travel/src/main/resources/travel.sql
