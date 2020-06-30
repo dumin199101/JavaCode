@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goosuu.dao.IUserDao">
+    <select id="findAll" resultType="User">
+        select * from user
+    </select>
+
+    <select id="findByID" resultType="User" parameterType="Int">
+        select * from user where id = #{uid}
+    </select>
+
+    <insert id="saveUser" parameterType="User">
+        <selectKey keyColumn="id" keyProperty="id" resultType="int" order="AFTER">
+            select last_insert_id();
+        </selectKey>
+        insert into user(username,birthday,sex,address) values (#{username},#{birthday},#{sex},#{address})
+    </insert>
+    
+    <update id="updateUser" parameterType="User">
+        update user set username=#{username},birthday=#{birthday},sex=#{sex}, address=#{address} where id=#{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="Integer">
+        delete from user where id = #{id}
+    </delete>
+
+    <select id="findUserByName" parameterType="String" resultType="User">
+        select * from user where username like #{username}
+    </select>
+
+    <select id="findTotalUser" resultType="int">
+        select count(*) from user
+    </select>
+</mapper>
