@@ -7,6 +7,10 @@
 <configuration>
     <properties resource="jdbcConfig.properties">
     </properties>
+    <!-- 延迟加载-->
+    <settings>
+        <setting name="lazyLoadingEnabled" value="true"/>
+    </settings>
     <!--  自定义别名  -->
     <typeAliases>
         <package name="com.goosuu.domain"/>

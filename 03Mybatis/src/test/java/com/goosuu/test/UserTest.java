@@ -11,6 +11,21 @@ package com.goosuu.test;
  *     一对一：association
  *     一对多：collection
  *     多对多：collection(双向一对多)
+ *   延迟加载：
+ *      也称懒加载，需要用到数据时才进行加载，不需要用到数据时就不加载数据。
+ *      使用association与collection可实现懒加载
+ *        属性：
+ *          select:指定查询关联表SQL
+ *          culumn:SQL语句的参数字段
+ *      开启延迟加载开关：lazyLoadingEnabled
+ *   缓存：
+ *    一级缓存
+ *       SqlSession级别缓存,只要SqlSession未关闭或者flush，缓存就存在。缓存的是对象
+ *    二级缓存
+ *       SqlSessionFactory级别缓存，缓存的是数据,同一个SqlSessionFactory创建的SqlSession对象共享数据
+ *       注意：
+ *         1.实体类必须实现Serializable接口
+ *         2.IUserDao.xml跟select标签开启二级缓存
  *   主配置文件：
  *      SqlMapConfig.xml:
  *        typeAliases:别名
@@ -46,6 +61,16 @@ package com.goosuu.test;
  *          parameterType:可传递pojo类查询对象
  *          resultMap:实体类属性与查询列不一致时使用
  *   基于注解使用Mybatis
+ *       @Insert:实现新增
+ *       @Update:实现更新
+ *       @Delete:实现删除
+ *       @Select:实现查询
+ *       @Result:实现结果集封装
+ *       @Results:可以与@Result一起使用，封装多个结果集
+ *       @ResultMap:实现引用@Results定义的封装
+ *       @One:实现一对一结果集封装
+ *       @Many:实现一对多结果集封装
+ *       @CacheNamespace:实现注解二级缓存的使用
  *
  *
  *
@@ -100,6 +125,15 @@ public class UserTest {
             System.out.println(user.getAccount());
         }
 
+    }
+
+    @Test
+    public void testLazyLoad(){
+        List<User> users = dao.findAll();
+        for (User user : users) {
+            System.out.println(user);
+            System.out.println(user.getAccount());
+        }
     }
 
     @Test
@@ -166,6 +200,32 @@ public class UserTest {
         for (User user1 : users) {
             System.out.println(user1);
         }
+    }
+
+    @Test
+    public void testFirstCache(){
+        User user1 = dao.findByID(50);
+        System.out.println(user1);
+        sqlSession.clearCache();
+        User user2 = dao.findByID(50);
+        System.out.println(user2);
+        System.out.println(user1==user2);
+    }
+
+    @Test
+    public void testSecondCache(){
+        SqlSession sqlSession1 = factory.openSession();
+        IUserDao dao1 = sqlSession1.getMapper(IUserDao.class);
+        User user1 = dao1.findByID(50);
+        System.out.println(user1);
+        //关闭一级缓存
+        sqlSession1.close();
+        SqlSession sqlSession2 = factory.openSession();
+        IUserDao dao2 = sqlSession2.getMapper(IUserDao.class);
+        User user2 = dao2.findByID(50);
+        System.out.println(user2);
+        sqlSession2.close();
+        System.out.println(user1==user2);
     }
 
     @After

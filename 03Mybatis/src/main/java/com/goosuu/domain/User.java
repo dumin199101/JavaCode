@@ -1,9 +1,10 @@
 package com.goosuu.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class User {
+public class User implements Serializable {
     private Integer id;
     private String username;
     private Date birthday;
@@ -60,7 +61,7 @@ public class User {
         this.address = address;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "User{" +
                 "id=" + id +
@@ -69,5 +70,5 @@ public class User {
                 ", sex='" + sex + '\'' +
                 ", address='" + address + '\'' +
                 '}';
-    }
+    }*/
 }
