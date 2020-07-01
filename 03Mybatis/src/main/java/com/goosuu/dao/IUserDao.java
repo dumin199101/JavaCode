@@ -1,5 +1,6 @@
 package com.goosuu.dao;
 
+import com.goosuu.domain.QueryVo;
 import com.goosuu.domain.User;
 
 
@@ -45,5 +46,16 @@ public interface IUserDao {
      */
     List<User> findUserByName(String username);
 
+    /**
+     * 查询数量
+     * @return
+     */
     int findTotalUser();
+
+    /**
+     * 根据pojo对象查询
+     * @param vo
+     * @return
+     */
+    List<User> findByQueryVo(QueryVo vo);
 }
