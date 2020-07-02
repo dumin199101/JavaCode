@@ -31,3 +31,6 @@ hs_err_pid*
 /02JavaWeb/travel/target/
 /02JavaWeb/travel/src/main/webapp/
 /02JavaWeb/travel/src/test/
+
+# maven
+target/
