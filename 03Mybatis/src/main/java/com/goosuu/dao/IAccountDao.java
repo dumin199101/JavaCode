@@ -10,4 +10,11 @@ public interface IAccountDao {
      * @return
      */
     List<Account> findAll();
+
+    /**
+     * 根据uid查询账户信息
+     * @param id
+     * @return
+     */
+    List<Account> findByID(Integer id);
 }
