@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--把对象的创建交给spring来管理-->
+   <!--  通过带参构造方式注入,给成员变量赋值  -->
+    <bean id="AccountServiceImpl" class="com.goosuu.service.impl.AccountServiceImpl" scope="singleton">
+         <constructor-arg name="name" value="lisi"></constructor-arg>
+         <constructor-arg name="birthday" ref="date"></constructor-arg>
+         <constructor-arg name="age" value="22"></constructor-arg>
+    </bean>
+
+    <bean id="date" class="java.util.Date"></bean>
+
+   <!-- 通过set方法注入   -->
+   <bean id="AccountServiceImpl2" class="com.goosuu.service.impl.AccountServiceImpl2">
+       <property name="username" value="wangwu"></property>
+       <property name="age" value="26"></property>
+       <property name="birthday" ref="date"></property>
+   </bean>
+
+    <bean id="AccountServiceImpl3" class="com.goosuu.service.impl.AccountServiceImpl3">
+        <property name="lists">
+            <list>
+                <value>11</value>
+                <value>22</value>
+                <value>33</value>
+            </list>
+        </property>
+        <property name="strs">
+            <array>
+                <value>zhangsan</value>
+                <value>lisi</value>
+            </array>
+        </property>
+        <property name="set">
+            <set>
+                <value>wangyuanyuan</value>
+                <value>wangwei</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="name">
+                    <value>zhenglei</value>
+                </entry>
+                <entry key="city">
+                    <value>beijing</value>
+                </entry>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="country">
+                    China
+                </prop>
+            </props>
+        </property>
+    </bean>
+
+
+
+</beans>
