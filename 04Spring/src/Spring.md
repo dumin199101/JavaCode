@@ -49,3 +49,51 @@
 注意：结构相同，标签可互换
 > List:list,array,set  
 > Map:map,entry,props,prop
+
+## 基于注解的IOC配置
+
+### 创建对象的注解
+@Component:把当前类的对象存入Spring容器
+属性：value,用于指定bean的ID,如果不指定，那么使用当前类名，首字母小写
+配置xml,告知spring容器要扫描的包:  
+<context:component-scan base-package="cn.anno"></context:component-scan>  
+衍生注解：
+  @Controller:表现层
+  @Service:业务层
+  @Repository:数据层
+
+### 注入数据的
+  @AutoWired:自动按照类型注入，要求容器中有唯一的Bean类型与要注入的变量匹配，可注入成功，如果有多个，则根据变量名为Bean的id继续寻找，如果找到则注入成功。
+  @Qulifier:指定bean的id，配合@AutoWired使用，用于多个Bean类型查找。
+  @Resource:直接按照bean的id查找,属性为name
+  @Value：基本数据类型跟String类型数据注入
+
+### 改变作用范围
+@Scope
+### 生命周期相关
+@PostConstruct,@PreDestroy
+
+## Spring新注解
+### @Configuration
+> 作用：指定当前类是一个配置类
+### @ComponentScan
+> 作用：指定要访问的包
+### @Bean
+> 作用：将当前方法的返回值存入Spring IOC容器,如果为指定name属性，那么会使用当前方法名作为bean的id。
+### @Import
+> 作用：导入其它配置类
+
+### @PropertySource
+> 作用：指定properties文件的位置
+
+### @Qualifier
+> 作用在方法参数上
+
+### Junit与Spring整合
+> 1.spring-test jar包  
+> 2.@Runwith(SpringJunit4ClassRunner.class)  
+> 3.@ContextConfiguration:
+>> locations:xml文件位置  
+>> classes:注解的类  
+
+>4.使用@Autowired注入数据
