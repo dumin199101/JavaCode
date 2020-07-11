@@ -97,3 +97,40 @@
 >> classes:注解的类  
 
 >4.使用@Autowired注入数据
+
+## AOP面向切面编程
+
+> 作用：在程序运行时，不修改源码对已有方法增强，减少代码冗余。  
+> 原理：动态代理技术
+
+> 切入点（PointCut）：被增强的方法  
+> 切面（Aspect）：被增强的方法&通知  
+> 织入（Weaving）：把增强应用到目标对象创建代理对象的过程
+> 通知（Advice）：提供公共代码的类，分为：前置通知，后置通知，异常通知，最终通知，环绕通知  
+>  目标对象（Target）  
+> 代理对象（Proxy）
+
+###  切点表达式
+> 修饰符 返回值 包名 类名 方法名（参数）  
+> 修饰符可省略  
+> 包名可以使用..代表当前包及其子包  
+> 参数列表使用..代表有参数无参数都可
+### 基于XML的AOP配置  
+ 1.把通知bean交给Spring管理  
+ 2.配置AOP  
+ 3.配置切面  
+ 4.配置通知的类型及切入点  
+ 
+ ### 环绕通知
+ Spring提供手动控制增强方法何时执行的方式，相当于动态代理中invoke执行的代码
+ 
+ ### 基于注解的AOP配置
+ @Aspect
+ @Pointcut
+ @Before
+ @AfterReturning
+ @AfterThrowing
+ @After
+ @Around
+ EnableAspectJAutoProxy:开启AOP注解支持
+ 

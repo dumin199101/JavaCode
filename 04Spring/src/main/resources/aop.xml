@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+<!--    配置Spring的IOC -->
+    <bean id="accountService" class="aop.service.impl.AccountServiceImpl"></bean>
+<!--    配置Spring的AOP
+        1.把通知bean交给Spring管理
+        2.配置AOP
+        3.配置切面
+        4.配置通知的类型及切入点
+-->
+
+<!--    配置通知Logger-->
+    <bean id="logger" class="aop.utils.Logger"></bean>
+<!--    配置AOP-->
+    <aop:config>
+        <aop:pointcut id="saveAccountPonit" expression="execution(* *..AccountServiceImpl.saveAccount(..))"/>
+        <aop:aspect id="logAdvice" ref="logger">
+            <!--<aop:before method="logBefore" pointcut-ref="saveAccountPonit"></aop:before>
+            <aop:after-returning method="logAfter" pointcut-ref="saveAccountPonit"></aop:after-returning>
+            <aop:after-throwing method="logError" pointcut-ref="saveAccountPonit"></aop:after-throwing>
+            <aop:after method="logFinal" pointcut-ref="saveAccountPonit"></aop:after>-->
+            <aop:around method="logAround" pointcut-ref="saveAccountPonit"></aop:around>
+        </aop:aspect>
+    </aop:config>
+</beans>
