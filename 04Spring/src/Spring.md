@@ -99,7 +99,7 @@
 >4.使用@Autowired注入数据
 
 ## AOP面向切面编程
-
+> 依赖环境：aspectjweaver
 > 作用：在程序运行时，不修改源码对已有方法增强，减少代码冗余。  
 > 原理：动态代理技术
 
@@ -110,27 +110,49 @@
 >  目标对象（Target）  
 > 代理对象（Proxy）
 
+### 环绕通知
+ Spring提供手动控制增强方法何时执行的方式，相当于动态代理中invoke执行的代码
+
 ###  切点表达式
 > 修饰符 返回值 包名 类名 方法名（参数）  
 > 修饰符可省略  
 > 包名可以使用..代表当前包及其子包  
 > 参数列表使用..代表有参数无参数都可
+
 ### 基于XML的AOP配置  
  1.把通知bean交给Spring管理  
  2.配置AOP  
  3.配置切面  
  4.配置通知的类型及切入点  
  
- ### 环绕通知
- Spring提供手动控制增强方法何时执行的方式，相当于动态代理中invoke执行的代码
- 
  ### 基于注解的AOP配置
- @Aspect
- @Pointcut
- @Before
- @AfterReturning
- @AfterThrowing
- @After
- @Around
- EnableAspectJAutoProxy:开启AOP注解支持
+ @Aspect  
+ @Pointcut  
+ @Before  
+ @AfterReturning  
+ @AfterThrowing  
+ @After  
+ @Around  
+ @EnableAspectJAutoProxy:开启AOP注解支持    
+ 注意：基于注解的AOP配置，最终通知会在后置通知之前执行，这种情况下使用环绕通知方式替代。
  
+ ## Spring JdbcTemplate
+ 依赖环境：spring-jdbc
+ spring提供了JdbcDaoSupport类可以减少不同dao之间重复声明，这种方式只能应用于xml
+ 
+ ## Spring事务控制
+ 依赖环境:spring-tx
+ 数据库引擎必须是InnoDB才支持事务操作
+ 
+ ### 基于XML的声明式事务控制
+ > spring中基于XML的声明式事务控制配置步骤  
+           1、配置事务管理器  
+           2、配置事务的通知   
+           3、配置AOP中的通用切入点表达式  
+           4、建立事务通知和切入点表达式的对应关系  
+           5、配置事务的属性  
+                 
+ 
+ ### 基于注解的声明式事务控制
+ @EnableTransactionManagement:开启注解事务支持
+ @Transactional:配置事务属性
