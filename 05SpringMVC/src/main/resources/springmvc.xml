@@ -29,6 +29,9 @@
         </property>
     </bean>
 
+    <!--过滤静态资源-->
+    <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
+
 
 <!--    开启springmvc框架的注解支持-->
     <mvc:annotation-driven conversion-service="conversionService" />

@@ -69,3 +69,23 @@
 > Model类：addAttribute():将数据存入request域  
 > ModelMap类：get():用于取出session域中的数据  
 > SessionStatus类:setComplete():用于删除session域中的数据
+
+## 响应返回值类型
+### 字符串
+> Model存储数据到request域转发    
+### void
+> 默认按照RequestMapping查找  
+> 使用request或者response 
+### ModelAndView  
+> ModelAndView存储数据并控制转发
+### Json数据
+> 使用@ResponseBody封装返回数据，会自动转为json格式  
+> 前端向后端发送的Json数据应为Json字符串
+
+### 转发和重定向
+>redirect,forward
+
+## 过滤静态资源
+```
+<mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
+```
