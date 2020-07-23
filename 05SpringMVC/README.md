@@ -89,3 +89,17 @@
 ```
 <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
 ```
+
+## 文件上传
+
+### 传统文件上传
+> 依赖：commons-io,commons-fileupload  
+> 通过ServletContext对象的getRealPath()获取真实存储路径  
+> 借助DiskFileItemFactory,ServletFileUpload类解析request对象
+
+### SpringMVC文件上传
+> 配置文件解析器
+```xml
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    </bean>
+```

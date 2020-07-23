@@ -12,6 +12,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:component-scan base-package="cn.itcast.controller"></context:component-scan>
+    <context:component-scan base-package="com.upload"></context:component-scan>
 
 <!--    配置视图解析器对象-->
     <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -32,6 +33,9 @@
     <!--过滤静态资源-->
     <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
 
+<!-- 配置文件解析器   -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    </bean>
 
 <!--    开启springmvc框架的注解支持-->
     <mvc:annotation-driven conversion-service="conversionService" />
