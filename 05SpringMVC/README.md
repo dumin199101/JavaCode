@@ -91,15 +91,28 @@
 ```
 
 ## 文件上传
-
-### 传统文件上传
 > 依赖：commons-io,commons-fileupload  
-> 通过ServletContext对象的getRealPath()获取真实存储路径  
-> 借助DiskFileItemFactory,ServletFileUpload类解析request对象
+> 通过ServletContext对象的getRealPath()获取真实存储路径
+
+### 传统文件上传  
+> 借助DiskFileItemFactory,ServletFileUpload类解析request对象实现文件上传
 
 ### SpringMVC文件上传
+> 借助MultipartFile对象实现文件上传
 > 配置文件解析器
 ```xml
 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
     </bean>
 ```
+
+### 异常处理器
+1.编写自定义异常类  
+2.编写异常处理器，实现HandlerExceptionResolver接口 
+3.配置异常处理器
+
+### 拦截器
+ 作用：对处理器进行前置处理和后置处理  
+ 作用对象：SpringMVC的控制器方法  
+ 要求：拦截器对象实现HandlerInterceptor接口  
+ 执行顺序：前置拦截器1-前置拦截器2-控制器方法-后置拦截器2-后置拦截器1-视图-最终拦截器2-最终拦截器1
+ 
