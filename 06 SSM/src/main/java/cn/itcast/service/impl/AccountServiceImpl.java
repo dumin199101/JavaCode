@@ -2,9 +2,11 @@ package cn.itcast.service.impl;
 
 import cn.itcast.domain.Account;
 import cn.itcast.service.AccountService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service("accountService")
 public class AccountServiceImpl implements AccountService {
     @Override
     public List<Account> findAll() {
