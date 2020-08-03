@@ -14,5 +14,5 @@ public interface AccountService {
     /**
      * 增加账户
      */
-    void saveAccount();
+    void saveAccount(Account account);
 }

@@ -15,7 +15,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void saveAccount() {
+    public void saveAccount(Account account) {
         System.out.println("增加账户");
     }
 }
