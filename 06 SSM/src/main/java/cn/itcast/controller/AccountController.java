@@ -25,9 +25,11 @@ public class AccountController {
     }
 
     @RequestMapping("/saveAccount")
-    public String saveAccount(Account account){
+    public String saveAccount(Account account,Model model){
         System.out.println("表现层，添加所有账户");
         accountService.saveAccount(account);
+        List<Account> list = accountService.findAll();
+        model.addAttribute("list",list);
         return "list";
     }
 }
