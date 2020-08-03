@@ -23,4 +23,11 @@ public class AccountController {
         model.addAttribute("list",list);
         return "list";
     }
+
+    @RequestMapping("/saveAccount")
+    public String saveAccount(Account account){
+        System.out.println("表现层，添加所有账户");
+        accountService.saveAccount(account);
+        return "list";
+    }
 }

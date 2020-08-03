@@ -12,5 +12,11 @@
 </head>
 <body>
     <a href="account/findAll">查询账户</a>
+    <h3>添加账户</h3>
+    <form action="account/saveAccount" method="post">
+        姓名：<input type="text" name="name"><br/>
+        金钱：<input type="text" name="money"><br/>
+        <input type="submit" value="提交">
+    </form>
 </body>
 </html>

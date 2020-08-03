@@ -34,6 +34,26 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
         <property name="basePackage" value="cn.itcast.dao"></property>
     </bean>
 
+    <!--Spring 事务管理-->
+    <!--配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--配置事务通知-->
+    <tx:advice id="advice">
+        <tx:attributes>
+            <tx:method name="find*" read-only="true"/>
+            <tx:method name="*" isolation="DEFAULT" />
+        </tx:attributes>
+    </tx:advice>
+
+    <!--配置事务通知跟切入点关联-->
+    <aop:config>
+        <aop:pointcut id="pt1" expression="execution(* cn.itcast.service.impl.*.*(..))"/>
+        <aop:advisor advice-ref="advice" pointcut-ref="pt1"></aop:advisor>
+    </aop:config>
+
 
 
 </beans>
