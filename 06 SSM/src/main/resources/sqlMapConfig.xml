@@ -19,7 +19,7 @@
     </environments>
     <!--引入Mapper映射-->
     <mappers>
-        <package name="cn.itcast.dao"/>
+        <package name="cn.itcast.repository"/>
     </mappers>
 </configuration>
 

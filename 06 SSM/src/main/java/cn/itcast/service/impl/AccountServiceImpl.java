@@ -1,6 +1,6 @@
 package cn.itcast.service.impl;
 
-import cn.itcast.dao.AccountDao;
+import cn.itcast.repository.AccountDao;
 import cn.itcast.domain.Account;
 import cn.itcast.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;

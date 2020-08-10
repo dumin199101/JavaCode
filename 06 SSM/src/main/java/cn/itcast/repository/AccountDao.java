@@ -1,4 +1,4 @@
-package cn.itcast.dao;
+package cn.itcast.repository;
 
 import cn.itcast.domain.Account;
 import org.apache.ibatis.annotations.Insert;

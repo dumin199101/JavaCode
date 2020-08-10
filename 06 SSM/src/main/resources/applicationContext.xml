@@ -31,7 +31,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
     </bean>
     <!--配置映射扫描-->
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="cn.itcast.dao"></property>
+        <property name="basePackage" value="cn.itcast.repository"></property>
     </bean>
 
     <!--Spring 事务管理-->

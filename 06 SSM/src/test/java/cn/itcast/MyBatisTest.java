@@ -1,7 +1,7 @@
 package cn.itcast;
 
 
-import cn.itcast.dao.AccountDao;
+import cn.itcast.repository.AccountDao;
 import cn.itcast.domain.Account;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
