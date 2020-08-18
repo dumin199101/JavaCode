@@ -1,0 +1,17 @@
+person1:
+  name: lisi
+  age: 22
+  addr: beijing
+
+person2: {name: wangwu,age: 44,addr: tianjin}
+
+student1:
+    - stuno: 1101
+      stuname: zhengqiang
+      stusex: male
+    - stuno: 1102
+      stuname: wangwei
+      stusex: female
+
+student2: [{stuno: 1103,stuname: zhaoliang,stusex: male},{stuno: 1104,stuname: wangyuanyuan,stusex: female}]
+

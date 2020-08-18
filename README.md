@@ -20,3 +20,5 @@ Spring,SpringMVC,Mybatis三大框架整合
 Zookeeper：提供分布式应用协调服务，保证分布式数据的一致性
 ## 10Dubbo
 Dubbo：Java高性能RPC（远程过程调用）框架，应用于分布式微服务环境。特点：面向接口的远程方法调用，智能容错负载均衡，服务自动注册发现
+## 12SpringBoot
+SpringBoot:提供快速使用Spring的方式，核心功能：起步依赖，自动配置
