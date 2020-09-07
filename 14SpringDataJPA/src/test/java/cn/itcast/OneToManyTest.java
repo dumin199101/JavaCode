@@ -26,10 +26,10 @@ public class OneToManyTest {
     @Rollback(false)
     public void testAdd(){
         Customer1 customer1 = new Customer1();
-        customer1.setCustName("百度");
+        customer1.setCustName("网易");
 
         Linkeman linkeman = new Linkeman();
-        linkeman.setLkmName("王媛媛");
+        linkeman.setLkmName("杜民");
 
         //建立双向关联
         customer1.getLinkmans().add(linkeman);

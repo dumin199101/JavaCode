@@ -30,6 +30,7 @@ public class Customer1 {
     //放弃外键维护权：多执行了一条update语句
 //    @OneToMany(mappedBy = "customer1")
     @OneToMany(mappedBy = "customer1",cascade = CascadeType.ALL)
+//    @OneToMany(mappedBy = "customer1",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Set<Linkeman> linkmans = new HashSet<>();
 
     public Set<Linkeman> getLinkmans() {
