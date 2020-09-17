@@ -24,3 +24,5 @@ Dubbo：Java高性能RPC（远程过程调用）框架，应用于分布式微�
 SpringBoot:提供快速使用Spring的方式，核心功能：起步依赖，自动配置
 ## 13SpringDataJPA
 SpringDataJPA:Java持久层接口框架
+## 15Rabbitmq
+Rabbitmq：消息队列中间件，主要用于异步通信，应用解耦，削峰填谷。
