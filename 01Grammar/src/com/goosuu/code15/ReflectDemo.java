@@ -3,13 +3,13 @@ package com.goosuu.code15;
 import com.goosuu.code15.reflect.Person;
 
 /**
- *   Java反射机制：
+ *   Java反射机制：将类的各个组成部分封装成其他对象
  *      1.源代码阶段：.java--->.class
  *      2.Class类对象阶段:
  *          Class类对象：
- *             Field：成员变量
- *             Method：成员方法
- *             Constructor：构造方法
+ *             Field[]：成员变量
+ *             Method[]：成员方法
+ *             Constructor[]：构造方法
  *      3.运行时阶段:new Object()
  *
  *      .class通过类加载器（ClassLoader）进内存，进入Class类对象阶段
